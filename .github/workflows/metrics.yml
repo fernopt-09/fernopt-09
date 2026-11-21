@@ -16,14 +16,34 @@ jobs:
   isocalendar:
     runs-on: ubuntu-latest
     steps:
-      - uses: lowlighter/metrics@latest
-        with:
-          filename: metrics.isocalendar.svg
-          token: ${{ secrets.METRICS_TOKEN }}
-          base: ""
-          plugin_isocalendar: yes
-          plugin_isocalendar_duration: half-year
-          config_timezone: Asia/Yekaterinburg
-          config_animations: no
-          output_action: commit
-          committer_message: "chore: update isometric commit calendar"
+      - uses: actions/checkout@v4
+
+      - name: Generate isometric calendar
+        run: |
+          docker run --rm \
+            -v "$PWD:/renders" \
+            -e INPUT_TOKEN="${{ secrets.METRICS_TOKEN }}" \
+            -e INPUT_FILENAME=metrics.isocalendar.svg \
+            -e INPUT_BASE= \
+            -e INPUT_PLUGIN_ISOCALENDAR=yes \
+            -e INPUT_PLUGIN_ISOCALENDAR_DURATION=half-year \
+            -e INPUT_CONFIG_TIMEZONE=Asia/Yekaterinburg \
+            -e INPUT_CONFIG_ANIMATIONS=no \
+            ghcr.io/lowlighter/metrics:latest
+
+      - name: Remove «Contributions calendar» header
+        run: |
+          sudo chown "$(id -u):$(id -g)" metrics.isocalendar.svg
+          python3 .github/scripts/trim-isocalendar.py metrics.isocalendar.svg
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add metrics.isocalendar.svg
+          if git diff --staged --quiet; then
+            echo "No changes"
+          else
+            git commit -m "chore: update isometric commit calendar"
+            git push
+          fi
