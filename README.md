@@ -2,11 +2,6 @@
   <img src="https://capsule-render.vercel.app/api?type=waving&color=0:2c3e50,100:4b6584&height=220&section=header&text=Welcome%20to%20my%20page!&fontSize=60&fontColor=ffffff&fontAlignY=50" alt="Welcome to my page!" />
 </p>
 
-<p align="center">
-  Backend developer.<br/>
-  I build MCP servers, game mods and Linux infrastructure.
-</p>
-
 <h3 align="center">🛠️ My stack</h3>
 
 <p align="center">
@@ -37,6 +32,13 @@
   <img alt="Git" src="https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white" />
   <img alt="Linux" src="https://img.shields.io/badge/linux-%23FCC624.svg?style=for-the-badge&logo=linux&logoColor=black" />
   <img alt="Proxmox" src="https://img.shields.io/badge/proxmox-%23E57000.svg?style=for-the-badge&logo=proxmox&logoColor=white" />
+</p>
+
+<p align="center">
+  <b>IDE / Agent harness</b><br/>
+  <img alt="GRAM" src="https://img.shields.io/badge/GRAM-%232c3e50.svg?style=for-the-badge" />
+  <img alt="OpenCode" src="https://img.shields.io/badge/opencode-%23000000.svg?style=for-the-badge&logo=opencode&logoColor=ffffff" />
+  <img alt="Claude Code" src="https://img.shields.io/badge/Claude%20Code-%23D97757.svg?style=for-the-badge&logo=claudecode&logoColor=white" />
 </p>
 
 <h3 align="center">🚀 My favorite projects</h3>
