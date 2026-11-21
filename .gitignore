@@ -1,0 +1,22 @@
+# OS / editors
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# Logs and temporary files
+*.log
+*.tmp
+.preview.html
+
+# Playwright
+.playwright-mcp/
+
+# Local environment
+.env
+.env.*
+
+# Dependencies and build output
+node_modules/
+dist/
+build/
